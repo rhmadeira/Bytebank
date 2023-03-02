@@ -27,7 +27,6 @@ namespace Bytebank.Contas
             }
         }
         public static int TotalContasCriadas { get; private set; }
-
         public string Conta { get; set; }
 
         
