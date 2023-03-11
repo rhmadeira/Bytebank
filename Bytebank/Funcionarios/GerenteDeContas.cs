@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytebank.SistemaInterno;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Bytebank.Funcionarios
 {
-    public class GerenteDeContas : Funcionario
+    public class GerenteDeContas: FuncionarioAutenticavel
     {
+
         public GerenteDeContas(string cpf, string nome) : base(cpf, 4000, nome)
         {
 
@@ -21,6 +23,7 @@ namespace Bytebank.Funcionarios
         {
             this.Salario *= 1.05;
         }
+
 
     }
 }

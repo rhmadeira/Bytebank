@@ -12,6 +12,7 @@ namespace Bytebank.Funcionarios
         public string Cpf { get; private set; }
         public double Salario { get; protected set; }
         public static int TotalFuncionarios { get; private set;}
+       
 
         public double SetSalario(double valor)
         {
@@ -21,7 +22,9 @@ namespace Bytebank.Funcionarios
         public abstract double GetBonificacao();
 
         public abstract void AumentarSalario();
-        
+
+       
+
 
         public Funcionario(string cpf,double salario,string nome)
         {

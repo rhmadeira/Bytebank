@@ -20,16 +20,17 @@ namespace Bytebank.Contas
             {
                 return this.numero_agencia;
             }
-            private set 
-            { 
-                if(value > 0)
-                this.numero_agencia = value;
+            private set
+            {
+                if (value > 0)
+                    this.numero_agencia = value;
             }
         }
-        public static int TotalContasCriadas { get; private set; }
         public string Conta { get; set; }
+        public static int TotalContasCriadas { get; private set; }
+        public static float TaxaOperacao { get; private set; }
 
-        
+
 
         public void Depositar(double valor)
         {
@@ -45,6 +46,7 @@ namespace Bytebank.Contas
             }
             else
             {
+                throw new SaldoInsuficienteExeption("Saldo insuficiente");
                 return false;
             }
         }
@@ -69,7 +71,7 @@ namespace Bytebank.Contas
 
         public void SetSaldo(double valor)
         {
-            if(valor < 0)
+            if (valor < 0)
             {
                 return;
             }
@@ -88,6 +90,20 @@ namespace Bytebank.Contas
         {
             Numero_agencia = numero_agencia;
             Conta = conta;
+            if(numero_agencia <= 0)
+            {
+                throw new ArgumentException("Numero de agência não pode ser menor ou igual a 0", nameof(numero_agencia));
+            }
+               
+            /*try
+            {
+                TaxaOperacao = 30 / TotalContasCriadas;
+            }
+            catch (DivideByZeroException) 
+            { 
+            Console.WriteLine("Ocorreu um erro, não foi possivel dividir por 0"); 
+            }*/
+
             TotalContasCriadas++;
         }
         public Cliente Titular { get; set; }
