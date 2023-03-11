@@ -1,25 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Bytebank.Funcionarios
 {
-    public class Diretor:Funcionario
+    public class GerenteDeContas : Funcionario
     {
+        public GerenteDeContas(string cpf, string nome) : base(cpf, 4000, nome)
+        {
+
+        }
         public override double GetBonificacao()
         {
-            return this.Salario * 0.5;
+            return this.Salario * 0.25;
         }
-
         public override void AumentarSalario()
         {
-            this.Salario *= 1.15;
+            this.Salario *= 1.05;
         }
 
-        public Diretor(string cpf, string nome):base(cpf, 5000, nome)
-        {
-        }
     }
 }
+
+

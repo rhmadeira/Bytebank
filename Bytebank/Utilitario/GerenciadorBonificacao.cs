@@ -9,7 +9,7 @@ namespace Bytebank.Utilitario
 {
     public class GerenciadorBonificacao
     {
-        public double TotalBonificacao { get; private set; }
+        public double TotalBonificacao { get; private set; } //somente leitura
 
         public void RegistrarBonificacao(Funcionario funcionario)
         {
